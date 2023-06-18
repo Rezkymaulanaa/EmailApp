@@ -8,8 +8,17 @@ import validate_email
 
 root = tk.Tk()
 root.geometry("800x550")
+root.config(bg="#D7C0AE")
 
-heading = tk.Label(text="Mail App", bg="#ED2D45", fg="#EBEBEB", font="10", width="500", height="3")
+read_style = {
+    'background': '#967E76',
+    'foreground': 'white',
+    'font': ('Arial', 10, 'bold'),
+    'padx': 10,
+    'pady': 5
+}
+
+heading = tk.Label(text="Mail App", bg="#4E3636", fg="#EBEBEB", font="20", width="500", height="3", pady=10)
 heading.pack()
 
 def send_email():
@@ -46,6 +55,7 @@ def send_email():
     address_entry.delete(0, END)
     emailbody_text.delete("1.0", "end")
     subject_entry.delete(0, END)
+    root.config(bg= "#D7C0AE")
 
 
 
@@ -128,11 +138,11 @@ def view_email(event):
         email_body_text.insert(tk.END, email_body)
 
 # Tombol untuk beralih ke tampilan pengiriman email
-send_button = tk.Button(root, text="Send Email", command=send_email, bg="#ED2D45", font=("Arial", 10, "bold"))
-send_button.pack(pady=10)
+send_button = tk.Button(root, text="Send Email", command=send_email, **read_style)
+send_button.pack(pady=15)
 
 # Tombol untuk beralih ke tampilan membaca email
-read_button = tk.Button(root, text="Read Emails", command=read_emails, bg="#ED2D45", font=("Arial", 10, "bold"))
+read_button = tk.Button(root, text="Read Emails", command=read_emails, **read_style)
 read_button.pack(pady=10)
 
 # Frame untuk pengiriman email
@@ -160,7 +170,7 @@ emailbody_label.grid(row=2, column=0, padx=20, pady=10)
 emailbody_text = tk.Text(sendemail_detail_frame, height=6, width=44)
 emailbody_text.grid(row=2, column=1, padx=20, pady=10)
 
-send_button = tk.Button(sendemail_detail_frame, text="S E N D", command=send_email, bg="#ED2D45", font=("Arial", 10, "bold"))
+send_button = tk.Button(sendemail_detail_frame, text="S E N D", command=send_email, bg="#D4D4D4", font=("Arial", 10, "bold"))
 send_button.grid(row=3, column=0, columnspan=2, pady=10)
 
 
